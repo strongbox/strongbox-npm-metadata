@@ -92,9 +92,12 @@
                                         new File( "$project.basedir/target/META-INF").mkdirs();
                                         
                                         def replaceRef(schemaFileName){
+					    String commonSchemaPath = "$project.basedir/target/generated-resources/META-INF/common.schema.json";
+					    String commonSchemaURI = new File(commonSchemaPath).toURI().toURL().toExternalForm();
+
                                             new File( "$project.basedir/target/META-INF/$schemaFileName" ).withWriter { w ->
                                               new File( "$project.basedir/target/generated-resources/META-INF/$schemaFileName" ).eachLine { line ->
-                                                w << line.replaceAll( "http://strongbox.carlspring.org/npm/metadata/common", "file://$project.basedir/target/generated-resources/META-INF/common.schema.json" ) + System.getProperty("line.separator")
+                                                w << line.replace( "http://strongbox.carlspring.org/npm/metadata/common", commonSchemaURI) + System.getProperty("line.separator")
                                               }
                                             }
                                         }
