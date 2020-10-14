@@ -5,9 +5,9 @@
 
     <parent>
         <groupId>org.carlspring.strongbox</groupId>
-        <artifactId>strongbox-npm-metadata-parent</artifactId>
+        <artifactId>strongbox-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../strongbox-npm-metadata-parent</relativePath>
+        <relativePath>../strongbox-parent</relativePath>
     </parent>
 
     <artifactId>strongbox-npm-metadata-jackson</artifactId>
